@@ -2,11 +2,11 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
    int n=nums.size();
-  long long int sum=(n*(n+1))/2;
-   long long int s2=0;
-   for(int i=0;i<nums.size();i++){
-    s2+=nums[i];
-   }
-   return (sum-s2);
+ int xor1=0,xor2=0;
+ for(int i=0;i<n;i++){
+    xor1=(i+1)^xor1;
+    xor2=nums[i]^xor2;
+ }
+ return xor1^xor2;
     }
 };
